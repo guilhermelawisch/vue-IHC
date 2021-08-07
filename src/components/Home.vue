@@ -1,6 +1,8 @@
 <template>
   <header>
+    <h3>Problemática</h3>
     <h2>Interface Humano Computador</h2>
+    <h3>Adequada</h3>
   </header>
   <main>
   
@@ -30,7 +32,7 @@ export default {
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     text-align: center;
 
     border-bottom: 1px solid rgba(0,0,0,0.2)
