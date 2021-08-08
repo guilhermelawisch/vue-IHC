@@ -6,52 +6,52 @@
   </header>
   <main>
     <div class="left">
-      <!-- <form action="">
+      <form action="">
         <div>
-          <label for="name">Nome:</label>
-          <input type="text" name="name" id="name" placeholder="nome">
+          <label for="incorrect-name">Nome:</label>
+          <input type="text" name="incorrect-name" id="incorrect-name" placeholder="nome">
         </div>
         <div>
-          <label for="surname">Sobrenome:</label>
-          <input type="text" name="surname" id="surname" placeholder="sobrenome">
+          <label for="incorrect-surname">Sobrenome:</label>
+          <input type="text" name="incorrect-surname" id="incorrect-surname" placeholder="sobrenome">
         </div>
         <div>
-          <label for="email">Email:</label>
-          <input type="text" name="email" id="email" placeholder="">
+          <label for="incorrect-email">Email:</label>
+          <input type="text" name="incorrect-email" id="incorrect-email" placeholder="">
         </div>
         <div>
-          <label for="phone">Phone:</label>
-          <input type="text" name="phone" id="phone" placeholder="">
+          <label for="incorrect-phone">Phone:</label>
+          <input type="text" name="incorrect-phone" id="incorrect-phone" placeholder="">
         </div>
         <div>
-          <label for="cep">CEP:</label>
-          <input type="text" name="cep" id="cep" placeholder="">
+          <label for="incorrect-cep">CEP:</label>
+          <input type="text" name="incorrect-cep" id="incorrect-cep" placeholder="">
         </div>
         <div>
-          <label for="street address">Rua:</label>
-          <input type="text" name="street address" id="street address" placeholder="">
+          <label for="incorrect-street address">Rua:</label>
+          <input type="text" name="incorrect-street-address" id="incorrect-street address" placeholder="">
         </div>
         <div>
-          <label for="street number">Número:</label>
-          <input type="text" name="street number" id="street number" placeholder="">
+          <label for="incorrect-street number">Número:</label>
+          <input type="text" name="incorrect-street-number" id="incorrect-street number" placeholder="">
         </div>
         <div>
-          <label for="complement">Complemento:</label>
-          <input type="text" name="complement" id="complement" placeholder="">
+          <label for="incorrect-complement">Complemento:</label>
+          <input type="text" name="incorrect-complement" id="incorrect-complement" placeholder="">
         </div>
         <div>
-          <label for="province">Estado:</label>
-          <input type="text" name="province" id="province" placeholder="">
+          <label for="incorrect-province">Estado:</label>
+          <input type="text" name="incorrect-province" id="incorrect-province" placeholder="">
         </div>
         <div>
-          <label for="country">País:</label>
-          <input type="text" name="country" id="country" placeholder="">
+          <label for="incorrect-country">País:</label>
+          <input type="text" name="incorrect-country" id="incorrect-country" placeholder="">
         </div>
         <div>
-          <label for="linkedin">LinkedIn:</label>
-          <input type="text" name="linkedin" id="linkedin" placeholder="">
+          <label for="incorrect-linkedin">LinkedIn:</label>
+          <input type="text" name="incorrect-linkedin" id="incorrect-linkedin" placeholder="">
         </div>
-      </form> -->
+      </form>
     </div>
     <div class="right">
       <form action="">
@@ -146,9 +146,7 @@ export default {
     }
   },
   mounted() {
-    address.getCEP(91250340).then(response => {
-      console.log(response.data)
-    })
+
   },
   methods: {
     getAddress() {
