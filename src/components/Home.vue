@@ -75,12 +75,12 @@
         </div>
         <div>
           <label for="cep">CEP:</label>
-          <input type="text" name="cep" id="cep" placeholder="00000-000">
+          <input type="text" name="cep" id="cep" placeholder="00000-000" v-model="cep">
         </div>
         <div class="address-one">
           <div>
             <label for="street address">Rua:</label>
-            <input type="text" name="street address" id="street address" placeholder="rua exemplo">
+            <input type="text" name="street address" id="street address" placeholder="rua exemplo" v-model="address.street">
           </div>
           <div>
             <label for="street number">Número:</label>
@@ -94,17 +94,17 @@
           </div>
           <div>
             <label for="city">Cidade:</label>
-            <input type="text" name="city" id="city" placeholder="Porto Alegre">
+            <input type="text" name="city" id="city" placeholder="Porto Alegre" v-model="address.city">
           </div>
         </div>
         <div class="local">
           <div>
             <label for="province">Estado:</label>
-            <input type="text" name="province" id="province" placeholder="Rio Grande do Sul">
+            <input type="text" name="province" id="province" placeholder="Rio Grande do Sul" v-model="address.province">
           </div>
           <div>
             <label for="country">País:</label>
-            <input type="text" name="country" id="country" placeholder="Brasil">
+            <input type="text" name="country" id="country" placeholder="Brasil" v-model="address.country">
           </div>
         </div>
         <div>
@@ -112,9 +112,7 @@
           <input type="text" name="linkedin" id="linkedin" placeholder="https://linkedin/in/exemplo">
         </div>
         <div id='test'>
-          <input type="text" v-model="nome">
-          {{ nome }}
-          <button @click="getAddress(event)" >Test</button>
+          <button @click="getAddress(event)">Test</button>
         </div>
       </form>
     </div>
@@ -134,7 +132,13 @@ export default {
   },
   data () {
     return {
-      nome: ''
+      cep: '',
+      address: {
+        street: '',
+        city: '',
+        province: '',
+        country: ''
+      }
     }
   },
   mounted() {
@@ -145,9 +149,17 @@ export default {
   methods: {
     getAddress() {
       event.preventDefault()
-      address.getCEP(this.nome).then(response => {
-        console.log(response.data)
-      })
+      
+      try {
+        address.getCEP(this.cep).then(response => {
+          this.address.street = response.data.logradouro
+          this.address.city = response.data.localidade
+          this.address.province = response.data.uf
+          this.address.country = 'Brasil'
+        })
+      } catch (err) {
+        alert(err)
+      }
     }
   }
 }
