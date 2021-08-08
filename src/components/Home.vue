@@ -132,36 +132,34 @@ export default {
     text-align: center;
     gap: 10vw;
 
+    background: #f0f0f5;
     border-bottom: 1px solid rgba(0,0,0,0.2)
   }
 
   main {
-    margin: 15vh 10vw; 
+    margin: 15vh;
 
     display: flex;
-    align-items: center;
+    gap: 10%;
   }
   main .left {
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-  }
-  main .left div {
-    position: relative;
-    width: 100%;
-  }
-  main .left div label {
-    position: absolute;
-    left: 0;
-    text-align: left;
-  }
-  main .left div input {
-    width: 100%;
+    width: 45%;
   }
   main .right {
-    width: 50%;
+    width: 45%;
   }
+  main .right div {
+    text-align: left;
+  }
+  main .right div label {
+    
+  }
+  main .right div input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+  }
+  
   footer {
     position: fixed;
     bottom: 0;
@@ -174,6 +172,7 @@ export default {
     justify-content: center;
     text-align: center;
 
+    background: #f0f0f5;
     border-top: 1px solid rgba(0,0,0,0.2)
   }
   footer a {

@@ -23,7 +23,7 @@ export default {
 }
 
 body {
-  background: rgba(0,0,0,0.02)
+  background: #f0f0f5;
 }
 
 #app {
