@@ -67,49 +67,55 @@
         </div>
         <div>
           <label for="email">Email:</label>
-          <input type="text" name="email" id="email" placeholder="">
+          <input type="text" name="email" id="email" placeholder="noreply@exemplo.com">
         </div>
         <div>
           <label for="phone">Phone:</label>
-          <input type="text" name="phone" id="phone" placeholder="">
+          <input type="text" name="phone" id="phone" placeholder="11 4002 8922">
         </div>
         <div>
           <label for="cep">CEP:</label>
-          <input type="text" name="cep" id="cep" placeholder="">
+          <input type="text" name="cep" id="cep" placeholder="00000-000">
         </div>
-        <div>
-          <label for="street address">Rua:</label>
-          <input type="text" name="street address" id="street address" placeholder="">
-        </div>
-        <div class="address">
+        <div class="address-one">
           <div>
-            <label for="street number">Número:</label>
-            <input type="text" name="street number" id="street number" placeholder="">
+            <label for="street address">Rua:</label>
+            <input type="text" name="street address" id="street address" placeholder="rua exemplo">
           </div>
           <div>
+            <label for="street number">Número:</label>
+            <input type="text" name="street number" id="street number" placeholder="100">
+          </div>
+        </div>
+        <div class="address-two">
+          <div>
             <label for="complement">Complemento:</label>
-            <input type="text" name="complement" id="complement" placeholder="">
+            <input type="text" name="complement" id="complement" placeholder="apto 500 torre 5">
+          </div>
+          <div>
+            <label for="city">Cidade:</label>
+            <input type="text" name="city" id="city" placeholder="Porto Alegre">
           </div>
         </div>
         <div class="local">
           <div>
             <label for="province">Estado:</label>
-            <input type="text" name="province" id="province" placeholder="">
+            <input type="text" name="province" id="province" placeholder="Rio Grande do Sul">
           </div>
           <div>
             <label for="country">País:</label>
-            <input type="text" name="country" id="country" placeholder="">
+            <input type="text" name="country" id="country" placeholder="Brasil">
           </div>
         </div>
         <div>
           <label for="linkedin">LinkedIn:</label>
-          <input type="text" name="linkedin" id="linkedin" placeholder="">
+          <input type="text" name="linkedin" id="linkedin" placeholder="https://linkedin/in/exemplo">
         </div>
       </form>
     </div>
   </main>
   <footer>
-    <a href="https://guilhermelawisch.vercel.app">by Guilherme Lawisch Machado &copy</a>
+    <a href="https://guilhermelawisch.vercel.app" target="_blank" rel="noopener noreferrer">by Guilherme Lawisch Machado &copy</a>
   </footer>
 </template>
 
@@ -162,32 +168,52 @@ export default {
     display: flex;
     gap: 8px;
   }
-  main .right .address {
+  main .right .names div:first-child {
+    flex: 1;
+  }
+  main .right .names div:last-child {
+    flex: 1;
+  }
+  main .right .address-one {
     display: flex;
     gap: 8px;
   }
-  main .right .address div:first-child {
+  main .right .address-one div:first-child {
+    flex: 3;
+  }
+  main .right .address-one div:last-child {
     flex: 1;
   }
-  main .right .address div:last-child {
+  main .right .address-two {
+    display: flex;
+    gap: 8px;
+  }
+  main .right .address-two div:first-child {
     flex: 2;
+  }
+  main .right .address-two div:last-child {
+    flex: 1;
   }
   main .right .local {
     display: flex;
     gap: 8px;
   }
   main .right .local div:first-child {
-    flex: 2;
+    flex: 1;
   }
   main .right .local div:last-child {
     flex: 1;
   }
   main .right div input {
     width: 100%;
-    padding: 12px 20px;
+    padding: 10px 18px;
     margin: 8px 0;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 5px;
   }
-  
+  main .right div input:hover {
+    background: rgba(0,0,0,0.01);
+  }
   footer {
     position: fixed;
     bottom: 0;
