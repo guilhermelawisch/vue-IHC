@@ -154,16 +154,16 @@ export default {
     getAddress() {
       event.preventDefault()
       
-      try {
-        address.getCEP(this.cep).then(response => {
-          this.address.street = response.data.logradouro
-          this.address.city = response.data.localidade
-          this.address.province = response.data.uf
-          this.address.country = 'Brasil'
-        })
-      } catch (err) {
+      const cep = this.cep.replaceAll("-","");
+      address.getCEP(cep).then(response => {
+        this.address.street = response.data.logradouro
+        this.address.city = response.data.localidade
+        this.address.province = response.data.uf
+        this.address.country = 'Brasil'
+      }).catch(err => {
+        console.log(err)
         alert(err)
-      }
+      })
     }
   }
 }
