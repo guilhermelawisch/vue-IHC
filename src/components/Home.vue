@@ -55,13 +55,15 @@
     </div>
     <div class="right">
       <form action="">
-        <div>
-          <label for="name">Nome:</label>
-          <input type="text" name="name" id="name" placeholder="nome">
-        </div>
-        <div>
-          <label for="surname">Sobrenome:</label>
-          <input type="text" name="surname" id="surname" placeholder="sobrenome">
+        <div class="names">
+          <div>
+            <label for="name">Nome:</label>
+            <input type="text" name="name" id="name" placeholder="nome">
+          </div>
+          <div>
+            <label for="surname">Sobrenome:</label>
+            <input type="text" name="surname" id="surname" placeholder="sobrenome">
+          </div>
         </div>
         <div>
           <label for="email">Email:</label>
@@ -79,21 +81,25 @@
           <label for="street address">Rua:</label>
           <input type="text" name="street address" id="street address" placeholder="">
         </div>
-        <div>
-          <label for="street number">Número:</label>
-          <input type="text" name="street number" id="street number" placeholder="">
+        <div class="address">
+          <div>
+            <label for="street number">Número:</label>
+            <input type="text" name="street number" id="street number" placeholder="">
+          </div>
+          <div>
+            <label for="complement">Complemento:</label>
+            <input type="text" name="complement" id="complement" placeholder="">
+          </div>
         </div>
-        <div>
-          <label for="complement">Complemento:</label>
-          <input type="text" name="complement" id="complement" placeholder="">
-        </div>
-        <div>
-          <label for="province">Estado:</label>
-          <input type="text" name="province" id="province" placeholder="">
-        </div>
-        <div>
-          <label for="country">País:</label>
-          <input type="text" name="country" id="country" placeholder="">
+        <div class="local">
+          <div>
+            <label for="province">Estado:</label>
+            <input type="text" name="province" id="province" placeholder="">
+          </div>
+          <div>
+            <label for="country">País:</label>
+            <input type="text" name="country" id="country" placeholder="">
+          </div>
         </div>
         <div>
           <label for="linkedin">LinkedIn:</label>
@@ -140,19 +146,41 @@ export default {
     margin: 15vh;
 
     display: flex;
-    gap: 10%;
+    gap: 5%;
   }
   main .left {
-    width: 45%;
+    width: 47.5%;
   }
   main .right {
-    width: 45%;
+    width: 47.5%; 
   }
   main .right div {
     text-align: left;
+    margin: 5px 0;
   }
-  main .right div label {
-    
+  main .right .names {
+    display: flex;
+    gap: 8px;
+  }
+  main .right .address {
+    display: flex;
+    gap: 8px;
+  }
+  main .right .address div:first-child {
+    flex: 1;
+  }
+  main .right .address div:last-child {
+    flex: 2;
+  }
+  main .right .local {
+    display: flex;
+    gap: 8px;
+  }
+  main .right .local div:first-child {
+    flex: 2;
+  }
+  main .right .local div:last-child {
+    flex: 1;
   }
   main .right div input {
     width: 100%;
