@@ -6,7 +6,7 @@
   </header>
   <main>
     <div class="left">
-      <form action="">
+      <!-- <form action="">
         <div>
           <label for="name">Nome:</label>
           <input type="text" name="name" id="name" placeholder="nome">
@@ -51,7 +51,7 @@
           <label for="linkedin">LinkedIn:</label>
           <input type="text" name="linkedin" id="linkedin" placeholder="">
         </div>
-      </form>
+      </form> -->
     </div>
     <div class="right">
       <form action="">
@@ -111,6 +111,11 @@
           <label for="linkedin">LinkedIn:</label>
           <input type="text" name="linkedin" id="linkedin" placeholder="https://linkedin/in/exemplo">
         </div>
+        <div id='test'>
+          <input type="text" v-model="nome">
+          {{ nome }}
+          <button @click="getAddress(event)" >Test</button>
+        </div>
       </form>
     </div>
   </main>
@@ -120,10 +125,30 @@
 </template>
 
 <script>
+import address from '../services/address'
+
 export default {
   name: 'Home',
   props: {
     msg: String
+  },
+  data () {
+    return {
+      nome: ''
+    }
+  },
+  mounted() {
+    address.getCEP(91250340).then(response => {
+      console.log(response.data)
+    })
+  },
+  methods: {
+    getAddress() {
+      event.preventDefault()
+      address.getCEP(this.nome).then(response => {
+        console.log(response.data)
+      })
+    }
   }
 }
 </script>
