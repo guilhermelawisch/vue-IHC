@@ -206,6 +206,7 @@ export default {
     padding: 2.5vh;
     transition: 0.2s;
   }
+  main .left:hover,
   main .right:hover {
     background: rgba(0,0,0,0.01)
   }
