@@ -73,13 +73,19 @@
             <input type="text" name="surname" id="surname" placeholder="seu sobrenome">
           </div>
         </div>
+        <div class="born-and-phone">
+          <div>
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" id="phone" placeholder="11 4002 8922">
+          </div>
+          <div>
+            <label for="birth-date">Data de Nascimento:<span>*</span></label>
+            <input type="date" name="birth-date" id="birth-date">
+          </div>
+        </div>
         <div>
           <label for="email">Email:<span>*</span></label>
           <input type="text" name="email" id="email" placeholder="noreply@exemplo.com">
-        </div>
-        <div>
-          <label for="phone">Phone:</label>
-          <input type="text" name="phone" id="phone" placeholder="11 4002 8922">
         </div>
         <div class="cep">
           <label for="cep">CEP:<span>*</span></label>
@@ -124,13 +130,27 @@
         </div>
         <div>
           <label for="linkedin">LinkedIn:</label>
-          <input type="text" name="linkedin" id="linkedin" placeholder="https://linkedin/in/exemplo">
+          <input type="link" name="linkedin" id="linkedin" placeholder="https://linkedin/in/exemplo">
         </div>
         <div class="submit">
           <p><span>*</span> campos obrigatórios</p>
           <button type="submit">Save</button>
         </div>
       </form>
+      <div class="arrows" id="arrows">
+        <i class="arrow down one">
+          <svg height="22" width="32">
+            <polyline points="5,5 15,15 25,5" />
+            Sorry, your browser does not support inline SVG.
+          </svg>
+        </i>
+        <i class="arrow down two">
+          <svg height="22" width="32">
+            <polyline points="5,5 15,15 25,5" />
+            Sorry, your browser does not support inline SVG.
+          </svg>
+        </i>
+      </div>
     </div>
   </main>
   <footer>
@@ -141,6 +161,30 @@
 <script>
 import address from '../services/address'
 
+let lastKnownScrollPosition = 0;
+let ticking = false;
+
+function doSomething(scrollPos) {
+  if (scrollPos > 0) {
+    document.getElementById('arrows').classList.add('off')
+  } else {
+    document.getElementById('arrows').classList.remove('off')
+  }
+}
+
+document.addEventListener('scroll', function(e) {
+  lastKnownScrollPosition = window.scrollY;
+
+  if (!ticking) {
+    window.requestAnimationFrame(function() {
+      doSomething(lastKnownScrollPosition);
+      ticking = false;
+    });
+
+    ticking = true;
+  }
+});
+
 export default {
   name: 'Home',
   props: {
@@ -148,6 +192,7 @@ export default {
   },
   data () {
     return {
+      scrollY: 0,
       cep: '',
       address: {
         street: '',
@@ -158,7 +203,16 @@ export default {
     }
   },
   mounted() {
-
+    this.scrollY = window.scrollY
+    console.log(window.scrollY)
+  },
+  watch: {
+    // scrollY(window.scrollY) {
+    //   console.log(`test`);
+    // }
+    // scrollY(window.scrollY) {
+    //   console.log(window.scrollY)
+    // }
   },
   methods: {
     getAddress() {
@@ -219,13 +273,46 @@ export default {
   main .left .submit p {
     font-size: 0.5rem;
   }
-  main .left div input {
-
-  }
   main .right {
     width: 50%; 
     padding: 2.5vh;
     transition: 0.2s;
+  }
+  main .right .arrows {
+    position: fixed;
+    bottom: 12vh;
+    right: 25vw;
+
+    transform: translate(50%, 0);
+
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  main .right i.one {
+    animation: spin 1s linear infinite;
+  }
+  main .right i.two {
+    margin-top: -45px; 
+    animation: spin 1s linear infinite;
+  }
+  main .right i.one svg polyline,
+  main .right i.two svg polyline {
+    fill: transparent;
+    stroke: #404040;
+    stroke-width:3;
+    transition: 0.3s;
+  }
+  main .right .off i.one svg polyline,
+  main .right .off i.two svg polyline {
+    fill: transparent;
+    stroke: transparent;
+    stroke-width:3;
+    transition: 0.3s;
+  }
+  /*  style="fill:transparent;stroke:black;stroke-width:3" */
+  @keyframes spin {
+    0% { transform: translate(0, 0%); }
+    50% { transform: translate(0, 50%); }
   }
   main .right div {
     text-align: left;
@@ -241,13 +328,26 @@ export default {
   main .right .names div:last-child {
     flex: 1;
   }
+  main .right .born-and-phone {
+    display: flex;
+    gap: 8px;
+  }
+  main .right .born-and-phone div:first-child {
+    flex: 2;
+  }
+  main .right .born-and-phone div:last-child {
+    flex: 1;
+  }
+  main .right .born-and-phone div:last-child input {
+    padding: 8px;
+  }
   main .right .cep div {
     margin: 0;
     position: relative;
   }
   main .right .cep div button {
     position: absolute;
-    right: 10px;
+    right: 12px;
     margin: 16px 0;
 
     border: 0;
