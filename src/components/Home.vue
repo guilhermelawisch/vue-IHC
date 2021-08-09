@@ -57,16 +57,16 @@
       <form action="">
         <div class="names">
           <div>
-            <label for="name">Nome:</label>
+            <label for="name">Nome:<span>*</span></label>
             <input type="text" name="name" id="name" placeholder="nome">
           </div>
           <div>
-            <label for="surname">Sobrenome:</label>
+            <label for="surname">Sobrenome:<span>*</span></label>
             <input type="text" name="surname" id="surname" placeholder="sobrenome">
           </div>
         </div>
         <div>
-          <label for="email">Email:</label>
+          <label for="email">Email:<span>*</span></label>
           <input type="text" name="email" id="email" placeholder="noreply@exemplo.com">
         </div>
         <div>
@@ -74,7 +74,7 @@
           <input type="text" name="phone" id="phone" placeholder="11 4002 8922">
         </div>
         <div class="cep">
-          <label for="cep">CEP:</label>
+          <label for="cep">CEP:<span>*</span></label>
           <div>
             <input type="text" name="cep" id="cep" placeholder="00000-000" v-model="cep">
             <button @click="getAddress(event)">
@@ -86,11 +86,11 @@
         </div>
         <div class="address-one">
           <div>
-            <label for="street address">Rua:</label>
+            <label for="street address">Rua:<span>*</span></label>
             <input type="text" name="street address" id="street address" placeholder="rua exemplo" v-model="address.street">
           </div>
           <div>
-            <label for="street number">Número:</label>
+            <label for="street number">Número:<span>*</span></label>
             <input type="text" name="street number" id="street number" placeholder="100">
           </div>
         </div>
@@ -100,23 +100,27 @@
             <input type="text" name="complement" id="complement" placeholder="apto 500 torre 5">
           </div>
           <div>
-            <label for="city">Cidade:</label>
+            <label for="city">Cidade:<span>*</span></label>
             <input type="text" name="city" id="city" placeholder="Porto Alegre" v-model="address.city">
           </div>
         </div>
         <div class="local">
           <div>
-            <label for="province">Estado:</label>
+            <label for="province">Estado:<span>*</span></label>
             <input type="text" name="province" id="province" placeholder="Rio Grande do Sul" v-model="address.province">
           </div>
           <div>
-            <label for="country">País:</label>
+            <label for="country">País:<span>*</span></label>
             <input type="text" name="country" id="country" placeholder="Brasil" v-model="address.country">
           </div>
         </div>
         <div>
           <label for="linkedin">LinkedIn:</label>
           <input type="text" name="linkedin" id="linkedin" placeholder="https://linkedin/in/exemplo">
+        </div>
+        <div class="submit">
+          <p><span>*</span> campos obrigatórios</p>
+          <button type="submit">Save</button>
         </div>
       </form>
     </div>
@@ -188,19 +192,22 @@ export default {
   }
 
   main {
-    margin: 15vh;
-
+    margin: 10vh 0;
+    
     display: flex;
-    /* gap: 5%; */
   }
   main .left {
-    margin-right: 2.5%;
-    width: 47.5%;
+    width: 50%;
+    padding: 2.5vh;
     border-right: 1px solid rgb(0,0,0,0.2);
   }
   main .right {
-    margin-left: 2.5%;
-    width: 47.5%; 
+    width: 50%; 
+    padding: 2.5vh;
+    transition: 0.2s;
+  }
+  main .right:hover {
+    background: rgba(0,0,0,0.01)
   }
   main .right div {
     text-align: left;
@@ -261,15 +268,43 @@ export default {
   main .right .local div:last-child {
     flex: 1;
   }
+  main .right .submit {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    
+    margin: 16px 0;
+  }
+  main .right .submit button {
+    width: 100px;
+    padding: 10px 18px;
+    border: 1px solid #006d32;
+    background: #26a641;
+    color: #fff;
+    border-radius: 5px;
+    transition: 0.2s;
+    /* #39d353 #26a641 #006d32 */
+  }
+  main .right .submit button:hover {
+    cursor: pointer;
+    background: #39d353;
+  }
   main .right div input {
     width: 100%;
     padding: 10px 18px;
     margin: 8px 0;
     border: 1px solid rgba(0,0,0,0.3);
     border-radius: 5px;
+    transition: 0.2s;
   }
   main .right div input:hover {
-    background: rgba(0,0,0,0.01);
+    background: rgba(255,255,255,0.6);
+  }
+  main .right span {
+    color: red;
+    font-size: 0.8rem;
   }
   footer {
     position: fixed;
