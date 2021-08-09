@@ -8,48 +8,56 @@
     <div class="left">
       <form action="">
         <div>
-          <label for="incorrect-name">Nome:</label>
-          <input type="text" name="incorrect-name" id="incorrect-name" placeholder="nome">
+          <label for="incorrect-name">Nome:* </label>
+          <input type="text" name="incorrect-name" id="incorrect-name">
         </div>
         <div>
-          <label for="incorrect-surname">Sobrenome:</label>
-          <input type="text" name="incorrect-surname" id="incorrect-surname" placeholder="sobrenome">
+          <label for="incorrect-surname">Sobrenome:* </label>
+          <input type="text" name="incorrect-surname" id="incorrect-surname">
         </div>
         <div>
-          <label for="incorrect-email">Email:</label>
+          <label for="incorrect-email">Email:* </label>
           <input type="text" name="incorrect-email" id="incorrect-email" placeholder="">
         </div>
         <div>
-          <label for="incorrect-phone">Phone:</label>
+          <label for="incorrect-phone">Phone: </label>
           <input type="text" name="incorrect-phone" id="incorrect-phone" placeholder="">
         </div>
         <div>
-          <label for="incorrect-cep">CEP:</label>
+          <label for="incorrect-cep">CEP:* </label>
           <input type="text" name="incorrect-cep" id="incorrect-cep" placeholder="">
         </div>
         <div>
-          <label for="incorrect-street address">Rua:</label>
+          <label for="incorrect-street address">Rua:* </label>
           <input type="text" name="incorrect-street-address" id="incorrect-street address" placeholder="">
         </div>
         <div>
-          <label for="incorrect-street number">Número:</label>
+          <label for="incorrect-street number">Número:* </label>
           <input type="text" name="incorrect-street-number" id="incorrect-street number" placeholder="">
         </div>
         <div>
-          <label for="incorrect-complement">Complemento:</label>
+          <label for="incorrect-complement">Complemento: </label>
           <input type="text" name="incorrect-complement" id="incorrect-complement" placeholder="">
         </div>
         <div>
-          <label for="incorrect-province">Estado:</label>
+          <label for="incorrect-city">Cidade:* </label>
+          <input type="text" name="incorrect-city" id="incorrect-city" placeholder="">
+        </div>
+        <div>
+          <label for="incorrect-province">Estado:* </label>
           <input type="text" name="incorrect-province" id="incorrect-province" placeholder="">
         </div>
         <div>
-          <label for="incorrect-country">País:</label>
+          <label for="incorrect-country">País:* </label>
           <input type="text" name="incorrect-country" id="incorrect-country" placeholder="">
         </div>
         <div>
-          <label for="incorrect-linkedin">LinkedIn:</label>
+          <label for="incorrect-linkedin">LinkedIn: </label>
           <input type="text" name="incorrect-linkedin" id="incorrect-linkedin" placeholder="">
+        </div>
+        <div class="submit">
+          <p><span>*</span> campos obrigatórios</p>
+          <button type="submit">Save</button>
         </div>
       </form>
     </div>
@@ -58,11 +66,11 @@
         <div class="names">
           <div>
             <label for="name">Nome:<span>*</span></label>
-            <input type="text" name="name" id="name" placeholder="nome">
+            <input type="text" name="name" id="name" placeholder="seu nome">
           </div>
           <div>
             <label for="surname">Sobrenome:<span>*</span></label>
-            <input type="text" name="surname" id="surname" placeholder="sobrenome">
+            <input type="text" name="surname" id="surname" placeholder="seu sobrenome">
           </div>
         </div>
         <div>
@@ -101,17 +109,17 @@
           </div>
           <div>
             <label for="city">Cidade:<span>*</span></label>
-            <input type="text" name="city" id="city" placeholder="Porto Alegre" v-model="address.city">
+            <input type="text" name="city" id="city" placeholder="sua cidade" v-model="address.city">
           </div>
         </div>
         <div class="local">
           <div>
             <label for="province">Estado:<span>*</span></label>
-            <input type="text" name="province" id="province" placeholder="Rio Grande do Sul" v-model="address.province">
+            <input type="text" name="province" id="province" placeholder="seu estado" v-model="address.province">
           </div>
           <div>
             <label for="country">País:<span>*</span></label>
-            <input type="text" name="country" id="country" placeholder="Brasil" v-model="address.country">
+            <input type="text" name="country" id="country" placeholder="seu país" v-model="address.country">
           </div>
         </div>
         <div>
@@ -199,16 +207,25 @@ export default {
   main .left {
     width: 50%;
     padding: 2.5vh;
+    background: #ff471a;
     border-right: 1px solid rgb(0,0,0,0.2);
+  }
+  main .left div {
+    margin: 12px 0;
+  }
+  main .left div label {
+    font-size: 0.9rem;
+  }
+  main .left .submit p {
+    font-size: 0.5rem;
+  }
+  main .left div input {
+
   }
   main .right {
     width: 50%; 
     padding: 2.5vh;
     transition: 0.2s;
-  }
-  main .left:hover,
-  main .right:hover {
-    background: rgba(0,0,0,0.01)
   }
   main .right div {
     text-align: left;
@@ -281,12 +298,12 @@ export default {
   main .right .submit button {
     width: 100px;
     padding: 10px 18px;
+    margin-top: 16px;
     border: 1px solid #006d32;
     background: #26a641;
     color: #fff;
     border-radius: 5px;
     transition: 0.2s;
-    /* #39d353 #26a641 #006d32 */
   }
   main .right .submit button:hover {
     cursor: pointer;
@@ -295,13 +312,13 @@ export default {
   main .right div input {
     width: 100%;
     padding: 10px 18px;
-    margin: 8px 0;
+    margin-top: 8px;
     border: 1px solid rgba(0,0,0,0.3);
     border-radius: 5px;
     transition: 0.2s;
   }
   main .right div input:hover {
-    background: rgba(255,255,255,0.6);
+    background: rgba(0,0,0,0.01);
   }
   main .right span {
     color: red;
