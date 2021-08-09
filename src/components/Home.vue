@@ -191,12 +191,15 @@ export default {
     margin: 15vh;
 
     display: flex;
-    gap: 5%;
+    /* gap: 5%; */
   }
   main .left {
+    margin-right: 2.5%;
     width: 47.5%;
+    border-right: 1px solid rgb(0,0,0,0.2);
   }
   main .right {
+    margin-left: 2.5%;
     width: 47.5%; 
   }
   main .right div {
