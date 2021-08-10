@@ -215,9 +215,6 @@ export default {
         this.address.city = response.data.localidade
         this.address.province = response.data.uf
         this.address.country = 'Brasil'
-      }).catch(err => {
-        console.log(err)
-        alert(err)
       })
     }
   }
