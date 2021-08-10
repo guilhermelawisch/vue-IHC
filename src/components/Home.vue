@@ -192,7 +192,6 @@ export default {
   },
   data () {
     return {
-      scrollY: 0,
       cep: '',
       address: {
         street: '',
@@ -203,16 +202,8 @@ export default {
     }
   },
   mounted() {
-    this.scrollY = window.scrollY
-    console.log(window.scrollY)
   },
   watch: {
-    // scrollY(window.scrollY) {
-    //   console.log(`test`);
-    // }
-    // scrollY(window.scrollY) {
-    //   console.log(window.scrollY)
-    // }
   },
   methods: {
     getAddress() {
