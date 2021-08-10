@@ -159,6 +159,7 @@
 </template>
 
 <script>
+/*eslint-disable */
 import address from '../services/address'
 
 let lastKnownScrollPosition = 0;
@@ -219,6 +220,7 @@ export default {
     }
   }
 }
+/*eslint-enable */
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

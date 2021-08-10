@@ -1,3 +1,4 @@
+/*eslint-disable */
 import { http } from './config'
 
 export default {
@@ -5,3 +6,4 @@ export default {
     return http.get(`/${cep}/json`)
   }
 }
+/*eslint-enable */

@@ -5,6 +5,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import Home from './components/Home.vue'
 
 export default {
@@ -13,6 +14,7 @@ export default {
     Home
   }
 }
+/*eslint-enable */
 </script>
 
 <style>
