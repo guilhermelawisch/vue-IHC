@@ -1,11 +1,10 @@
 <template>
   <header>
-    <h3>Problemática</h3>
-    <h2>Interface Humano Computador</h2>
-    <h3>Adequada</h3>
+    <h2>Interface Humano Computador - Formulário</h2>
   </header>
   <main>
     <div class="left">
+    <h3>Problemático</h3>
       <form action="">
         <div>
           <label for="incorrect-name">Nome:* </label>
@@ -62,6 +61,7 @@
       </form>
     </div>
     <div class="right">
+      <h3>Adequado</h3>
       <form action="">
         <div class="names">
           <div>
@@ -248,6 +248,9 @@ export default {
     
     display: flex;
   }
+  main h3 {
+    margin: 10px 0;
+  }
   main .left {
     width: 50%;
     padding: 2.5vh;
@@ -262,6 +265,7 @@ export default {
   }
   main .left .submit p {
     font-size: 0.5rem;
+    color: red;
   }
   main .right {
     width: 50%; 
@@ -383,12 +387,11 @@ export default {
     align-items: center;
     text-align: center;
     
-    margin: 16px 0;
+    margin: 32px 0 16px;
   }
   main .right .submit button {
     width: 100px;
     padding: 10px 18px;
-    margin-top: 16px;
     border: 1px solid #006d32;
     background: #26a641;
     color: #fff;
@@ -432,5 +435,19 @@ export default {
   footer a {
     text-decoration: none;
     color: rgb(0,0,0)
+  }
+
+  @media (max-width: 500px) {
+    main {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    main .left,
+    main .right {
+      width: 100%;
+    }
+    main .right .arrows {
+      right: 50%;
+    }
   }
 </style>
