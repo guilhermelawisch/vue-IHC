@@ -267,6 +267,10 @@ export default {
     font-size: 0.5rem;
     color: red;
   }
+  main .left input {
+    width: 80px;
+    outline: 0;
+  }
   main .right {
     width: 50%; 
     padding: 2.5vh;
